@@ -34,7 +34,21 @@ rotate(data, 11)    // => [5, 1, 2, 3, 4]
 rotate(data, 12478) // => [3, 4, 5, 1, 2]
 
 */
+
 function rotate(array, steps){
+	var result = [];
+	if (steps === 0 || steps === array.length ){
+		return array;
+	}	
+
+	if (steps > 0 && steps < array.length){
+		result = array.splice(array.length - steps, steps)
+		result =result.concat(array);
+		return result;
+		
+	}
+
+
 
 }
 
@@ -56,5 +70,19 @@ nextBigger(531)==-1
 */
 
 function nextBigger(num){
+  var nums = num +"";
+  var arr = nums.split("")
+  if (arr.length === 1){
+    return -1
+  }
+  var temp = arr[arr.length-1];
+  arr[arr.length-1] = arr[arr.length-2]
+  arr[arr.length-2] = temp;
 
+  var newNum = arr.join("");
+  newNum = parseInt(newNum);
+  if (newNum > num){
+    return newNum;
+  }
+  return - 1 
 }
