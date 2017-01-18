@@ -5,5 +5,21 @@ Hint the answer is 1366.
 */
 
 var powerOfTwo = function(num){
-
+	var newNum = Math.pow(2,num);
+	var str = newNum +"";
+	var result = 0;
+	if (isNaN(num)  ){
+		return 0;
+	}
+	for (var i = 0; i < str.length; i++){
+		if(str[i] !== 'e' && str[i] !== '.' && str[i] !== '+'){
+			result = result+ parseInt(str[i]);
+		}
+		else{
+			var num2 = str.split('+');                 // num2 = ["1.0715086071862673", "301"]
+			result+= powerOfTwo(parseInt(num2[1]));
+		}
+	}
+	   
+	return result;
 }
