@@ -13,7 +13,7 @@ Example:
 arr = [2,4,3,6,8,2,3,4,8];
 singleNumber(arr);//should return 6 because it only appear once
 */
-function singleNumber(arr){
+function singleNumber(arr){  //O(n)
 	var count={};
 	for(var i=0; i < arr.length; i++){   //O(n)
 		if(count[arr[i]]){
@@ -42,7 +42,8 @@ var nums = [2, 7, 11, 15], target = 9,
 twoSum(nums,9); //should return [0,1] because nums[0] + nums[1] = 2 + 7 = 9;
 */
 
-function twoSum(nums, target){  //O(n^2)
+function twoSum(nums, target){  //O(n^2) //maybe we can use Object to make it leanear
+	var obj = {};           
 	var sub = 0;
 	var retsult = [];
 	for(var i = 0; i < nums.length; i++){ // O(n)
