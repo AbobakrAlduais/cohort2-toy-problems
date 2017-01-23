@@ -14,8 +14,19 @@ arr = [2,4,3,6,8,2,3,4,8];
 singleNumber(arr);//should return 6 because it only appear once
 */
 function singleNumber(arr){
-
-}
+	var count={};
+	for(var i=0; i < arr.length; i++){   //O(n)
+		if(count[arr[i]]){
+			count[arr[i]]+=1;
+		}
+		else count[arr[i]] = 1;
+	}
+	for(var key in count){   //O(n)
+		if(count[key] === 1){
+			return parseInt(key);
+		}
+	}
+}; 
 
 /*
 Problem 2 (medium):
@@ -31,9 +42,19 @@ var nums = [2, 7, 11, 15], target = 9,
 twoSum(nums,9); //should return [0,1] because nums[0] + nums[1] = 2 + 7 = 9;
 */
 
-function twoSum(nums, target){
+function twoSum(nums, target){  //O(n^2)
+	var sub = 0;
+	var retsult = [];
+	for(var i = 0; i < nums.length; i++){ // O(n)
+		sub = target - nums [i];
+		if(nums.indexOf(sub) >-1){  //O(n)
+			retsult.push(i);
+			retsult.push(nums.indexOf(sub));  
+			return retsult;
+		}
+	}
 
-}
+};
 
 /*
 Problem 3 (advanced):
