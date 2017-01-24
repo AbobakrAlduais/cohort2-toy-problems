@@ -37,7 +37,7 @@
  *  - Make your function accept a parameter for the direction of rotation (1 = clockwise, -1 = counterclockwise)
  */
 
-var rotateMatrix =function (matrix) {
+var rotateMatrix =function (matrix,direction) {  //O(n^2)
 	
 	var result = [];
 	for (var i = 0; i < matrix.length; i++){
@@ -46,6 +46,9 @@ var rotateMatrix =function (matrix) {
 			RowArr.push(matrix[j][i]);
 		}
 		result.push(RowArr);
+	}
+	if(direction === -1){        // if counterclockwise 
+		rotateMatrix(result,1)
 	}
 	return result;
 }
