@@ -11,5 +11,27 @@
  */
 
 var spiralTraversal = function(matrix){
+	var result = [];
+	var row = 0;
+	var col = 0;
+	var maxCol = matrix.length-1;
+
+	for (col = 0; col < matrix.length -1; col++){    //first row
+		result.push (matrix[row][col]);
+	}
+	for(row = 0; row < matrix.length; row++){        //last colom
+		
+		result.push(matrix[row][maxCol]);
+	}
+	if(row === maxCol)                              //last row
+	for(;maxCol > 0; maxCol--){
+		result.push(matrix[row][maxCol])
+		col = 0;
+	}
+	for (row = row-1; row < matrix.length-1; row--){  
+		result.push(matrix[row][col])
+
+	}
+	return result;
 
 };
