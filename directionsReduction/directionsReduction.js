@@ -27,8 +27,30 @@ dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) => ["WEST
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]) => [] //don't need to move at all
 */
 
-var dirReduc = function(directions){
-	
-	return directions;
+var dirReduc = function(directions){  //O(n)
+	var dirc = {};                                   // OR we can add object with key is the direction 
+	var result = [];								//and value ids the oppsit of this direction and we check
+	for (var i = 0; i < directions.length; i++ ){	//with for loop if the current value not equal the oppesit push it to result
+		if(dirc[directions[i]]){					//
+			dirc[directions[i]] += 1; 
+		}else{dirc[directions[i]] = 1;}
+	}
+
+	if(dirc['NORTH'] > dirc['SOUTH'] ){
+		result.push('NORTH');
+	}
+	else if(dirc['SOUTH'] > dirc['NORTH']){
+		result.push('SOUTH');
+	}
+	else if(dirc['WEST'] > dirc['EAST'] ){
+		result.push('WEST');
+	}
+	else if(dirc['EAST'] > dirc['WEST']){
+		result.push('EAST');
+	}
+
+
+
+	return result;
 };
 
