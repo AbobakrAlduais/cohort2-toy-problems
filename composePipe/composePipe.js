@@ -39,6 +39,16 @@ var add2 = function(number){ return number + 2; }
 var multiplyBy3 = function(number){ return number * 3; }
 
 var pipe = function(func1,func2){
+  var args = [...arguments];             // array of arguments
+  var result = function(number){
+    for (var i = 0; i < args.length; i++){     //loop over arguments and start from left;
+      number = args[i].call(this, number)      // use call to applay function arguments
+
+    }
+    return number;
+  }
+  return result;
+
   
 };
 
@@ -46,11 +56,19 @@ var addAndMultiplyTwice = pipe(add2, multiplyBy3, multiplyBy3);
 
 //==============================================================================
 
+ 
  var greet = function(name){ return 'hello ' + name;}
  var exclaim = function(statement) { return statement.toUpperCase() + '!';}
 
 var compose = function(){
-  
+  var args = [...arguments];     // array of arguments
+  var result = function (name){                                
+      for(var i = args.length-1; i >= 0; i--){   //start from last index (from right )
+        name = args[i].call (this, name)          //use call 
+      }
+      return name;
+  }
+  return result;
 };
 
 
