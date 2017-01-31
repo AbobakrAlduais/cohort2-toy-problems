@@ -16,10 +16,14 @@ var largestProductOfThree = function(array) {
 	if (array[0] < 0 && array [1] < 0){
 		var negativeProdect = array[0] * array [1] *array [array.length-1]; // if there is two number negative ;
 	}
-	if(product > negativeProdect){
+	if(product < negativeProdect){
+		return negativeProdect;
+	}
+	else{
 		return product;
 	}
-	return negativeProdect;
+
+	
 	 
 };
 
