@@ -22,6 +22,12 @@
  * Extra credit: Make the method work for arrays that contain objects and/or arrays as elements.
 */
 
-Array.prototype.isSubsetOf = function (arr) {
-
+Array.prototype.isSubsetOf = function (arr) {  //using JSON.stringify if array ontain objects
+	for (var i = 0; i < this.length; i++){
+		if (JSON.stringify(arr).indexOf(JSON.stringify(this[i])) < 0){  
+			return false ;
+		}
+	}
+	return true;
 }
+
