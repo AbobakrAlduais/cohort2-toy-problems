@@ -4,7 +4,26 @@
  * a prime number, false if it's not.
  */
 var primeTester = function(n) {
+	if (n <= 1){
+		return false;
+	}
+	for (var i = 2; i <= n-1; i++){
+		if (n % i === 0){
+			return false;
+		}
+	}
+	return true; 
+}
 
+
+var primeNums = function(start,end){
+	var primeNumbers = [];
+	for (var i = start; i <= end; i++){
+		if(primeTester(i)){
+			primeNumbers.push(i)
+		}
+	}
+	return primeNumbers;
 }
 
  /* Extra credit: Write a function that generates a list of all prime numbers
