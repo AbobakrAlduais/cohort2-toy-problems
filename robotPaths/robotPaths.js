@@ -51,11 +51,11 @@ var robotPaths = function(myBoard) {
 		 	myBoard.togglePiece(i,j+1)
 		 }
 		                                               // if move rigt add 1 to i
-														 //if move left subtract 1 from i
-														 // if move down add 1 to j
-														 // if move up subtract 1 from j
-														 // and chech if i&j = myBoard.length-1
-														 // add one path
+													 //if move left subtract 1 from i
+													 // if move down add 1 to j
+													// if move up subtract 1 from j
+													// and chech if i&j = myBoard.length-1
+													// add one path
 
 	
 
