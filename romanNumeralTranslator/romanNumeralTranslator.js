@@ -26,4 +26,16 @@ var translateRomanNumeral = function(romanNumeral){
 	  D: 500,
 	  M: 1000
 	};
+
+	var result = 0;
+	romanNumeral = romanNumeral.toUpperCase().split('');
+
+	for (var i = 0; i < romanNumeral.length; i++){
+		if(!DIGIT_VALUES[romanNumeral[i]]){
+			return null;
+		}
+	result = DIGIT_VALUES[romanNumeral[i]] < DIGIT_VALUES[romanNumeral[i+1]] ? result - DIGIT_VALUES[romanNumeral[i]] : result + DIGIT_VALUES[romanNumeral[i]] 
+	
+}
+return result;
 }
