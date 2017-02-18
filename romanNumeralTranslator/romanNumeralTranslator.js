@@ -26,6 +26,7 @@ var translateRomanNumeral = function(romanNumeral){
 	  D: 500,
 	  M: 1000
 	};
+<<<<<<< HEAD
 
 	var result = 0;
 	romanNumeral = romanNumeral.toUpperCase().split('');
@@ -38,4 +39,6 @@ var translateRomanNumeral = function(romanNumeral){
 	
 }
 return result;
+=======
+>>>>>>> ec1197ded368e7aad2cc2c29d5059a3905f42645
 }
