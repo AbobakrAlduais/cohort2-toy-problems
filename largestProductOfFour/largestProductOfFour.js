@@ -38,6 +38,77 @@
 
 
 var largestProductOfFour = function(array) {
+	var largest = 1;
+	var current = 1;
+	for (var i = 0; i < array.length; i++){
+		for (var j = 0; j < array.length; j++){
+
+			for (var x = 0; x < 4; x++){     // move right
+				if (j+x < array.length ){
+				current = current * array[i][j+x]
+				}           
+			}
+			if (current > largest){
+				largest = current ;
+			}
+			current = 1;
+
+			for (var x = 0; x < 4; x++){  //move left
+				if (j-x > 0){
+				current *= array[i][j-x]
+				}
+			}
+			if (current > largest){
+				largest = current ;
+			}
+			current = 1;
+
+			for (var x = 0; x < 4; x++){   //move up
+				if(i-x > 0){
+					current *= array[i-x][j];
+				}
+			}
+			if (current > largest){
+				largest = current ;
+			}
+			current = 1;
+
+			for(var x = 0; x < 4; x++){   //move down
+				if (x+i < array.length){
+					current *= array[i+x][j];
+				}
+			}
+			if (current > largest){
+				largest = current ;
+			}
+			current = 1;
+
+			for(var x = 0; x < 4; x++){       //move major dialog
+				if ( i+x <array.length && j+x < array.length){
+					current *=array[i+x][j+x]
+				}
+
+			}
+			if (current > largest){
+				largest = current ;
+			}
+			current = 1;
+			for(var x = 0; x < 4; x++){       //move minor dialog
+				if ( i+x < array.length && j-x > 0){
+					current *=array[i+x][j-x]
+				}
+
+			}
+			if (current > largest){
+				largest = current ;
+			}
+			current = 1;
+
+
+
+		}
+	}
+	return largest;
 
 };
 
